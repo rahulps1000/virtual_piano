@@ -1,6 +1,7 @@
 .piano {
     width: fit-content;
     overflow-x: auto;
+    position: relative;
     --width : 90vw;
     --white : 25;
     --black: 50;
@@ -8,9 +9,20 @@
     --font-size: 100;
 }
 
+.piano::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    background-color: aquamarine;
+    width: calc(100% - 6px);
+    height: 5px;
+    left: 3px;
+}
+
 .set {
     margin-left: -40px;
 }
+
 
 li {
     margin: 0;
