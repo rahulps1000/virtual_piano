@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Piano from "./Piano";
+import React, { useState } from "react";
 
 function App() {
+  const [showNote, setShowNote] = useState(true);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="nav">Virtual Piano</div>
+      <div className="keyboard">
+        <div className="cover">
+          <div className="settings">
+            <div>
+              <div className="text">Notes</div>
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  onChange={() => setShowNote((x) => !x)}
+                />
+                <div>
+                  <span></span>
+                </div>
+              </label>
+              <div className="text">Keys</div>
+            </div>
+          </div>
+          <Piano showNote={showNote} />
+        </div>
+      </div>
+      <span className="like">
+        Made with ❤️ by{" "}
         <a
-          className="App-link"
-          href="https://reactjs.org"
+          href="https://www.github.com/rahulps1000"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noreferrer"
         >
-          Learn React
+          Rahul
         </a>
-      </header>
+      </span>
     </div>
   );
 }
